@@ -3,7 +3,8 @@ create schema inventory_app;
 create table categories
 (
     id   int generated always as identity primary key,
-    name varchar(255) not null
+    name varchar(255) not null,
+    description TEXT
 );
 
 create table items
