@@ -11,7 +11,7 @@ async function getAllCategories(req, res, next) {
         ])
       : await pool.query('SELECT * FROM categories');
 
-    res.status(200).json({ categories: rows });
+    res.render('categories', { categories: rows });
   } catch (err) {
     next(err);
   }
@@ -36,7 +36,31 @@ async function getCategoryById(req, res, next) {
   }
 }
 
+async function createCategory(req, res, next) {
+  const { name, description } = req.body;
+
+  if (!name || !description) {
+    res.status(422).json({ error: 'Missing fields' });
+  }
+
+  try {
+    const result = await pool.query(
+      'INSERT INTO categories(name, description) VALUES($1, $2) RETURNING *',
+      [name, description],
+    );
+    res
+      .status(200)
+      .json({
+        category: result.rows[0],
+        message: 'Category created successfully',
+      });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   getAllCategories,
   getCategoryById,
+  createCategory,
 };
