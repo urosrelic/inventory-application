@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --section-padding: 10px;
+    --body-bg-color: #f3ecec;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-bg-color);
+}
+
+/*Navbar*/
+.navbar {
+    padding: var(--section-padding);
+    background-color: #FFFFFF;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__mobile {
+    display: none;
+}
+
+.navbar__desktop {
+    display: flex;
+}
+
+
+.navbar__mobile-header {
+    display: none;
+}
+
+.navbar__logo {
+    display: block;
+    width: 32px;
+}
+
+.navbar__logo img {
+    width: 100%;
+}
+
+/*Categories page*/
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    place-items: center;
+
+}
+
+.categories__category {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    align-self: center;
+
+}
+
+.categories__category-name {
+
+}
+
+@media (max-width: 500px) {
+    body {
+        /* leave room for the fixed header and bottom navbar */
+        padding-top: calc(32px + 2 * var(--section-padding));
+        padding-bottom: calc(19px + 2 * var(--section-padding));
+    }
+
+    .navbar {
+        /* mobile nav is fixed, so the wrapper needs no space */
+        padding: 0;
+    }
+
+    .navbar__desktop {
+        display: none;
+    }
+
+    .navbar__mobile-header {
+        width: 100%;
+        display: flex;
+        background-color: #FFFFFF;
+        align-items: center;
+        gap: 10px;
+        padding: var(--section-padding);
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+
+    .navbar__mobile {
+        width: 100%;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+
+    .navbar__mobile-link {
+        padding: 10px;
+    }
+
+    .navbar__mobile-link a {
+        text-decoration: none;
+        color: black;
+    }
+}
