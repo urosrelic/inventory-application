@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "src/app.js",
   "scripts": {
     "dev": "node --env-file=.env --watch src/app.js",
@@ -12,6 +12,8 @@
   },
   "devDependencies": {
     "@types/node": "^26.4.1",
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.10.3",
     "prettier": "^3.9.6"
   },
   "dependencies": {
