@@ -115,6 +115,19 @@ body {
 
     .navbar__mobile-link {
         padding: 10px;
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar__mobile-link-image {
+        width: 24px;
+    }
+
+    .navbar__mobile-link-image img {
+        width: 100%;
     }
 
     .navbar__mobile-link a {
