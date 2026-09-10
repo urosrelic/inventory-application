@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<main class="categories">
+    <%- include('partials/nav') %>
+    <% {categories.map((category) => { %>
+        <div class="categories__category">
+            <span class="categories__category-name">
+                 <%= category.name %>
+            </span>
+            <span class="categories__category-description">
+                <%= category.description %>
+            </span>
+            <span class="categories__category-item-count">
+                <%= category.items_count%> products
+            </span>
+        </div>
+    <% })} %>
+</main>
+</body>
+</html>
