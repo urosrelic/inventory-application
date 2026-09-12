@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/*Global*/
 :root {
     --section-padding: 10px;
     --body-bg-color: #f3ecec;
@@ -16,15 +17,20 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--body-bg-color);
+    /* leave room for the fixed header and bottom navbar */
+    padding-top: calc(32px + 2 * var(--section-padding));
+    padding-bottom: calc(19px + 2 * var(--section-padding));
 }
 
 /*Navbar*/
 .navbar {
-    padding: var(--section-padding);
+    /* mobile nav is fixed, so the wrapper needs no space */
+    padding: 0;
     background-color: #FFFFFF;
     width: 100%;
     display: flex;
     justify-content: space-between;
+
 }
 
 .navbar__mobile {
@@ -32,12 +38,30 @@ body {
 }
 
 .navbar__desktop {
-    display: flex;
+    display: none;
 }
 
 
 .navbar__mobile-header {
-    display: none;
+    width: 100%;
+    display: flex;
+    background-color: #FFFFFF;
+    align-items: center;
+    gap: 10px;
+    padding: var(--section-padding);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar__mobile {
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .navbar__logo {
@@ -49,6 +73,28 @@ body {
     width: 100%;
 }
 
+.navbar__link {
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar__link-image {
+    width: 24px;
+}
+
+.navbar__link-image img {
+    width: 100%;
+}
+
+.navbar__link a {
+    text-decoration: none;
+    color: black;
+}
+
 /*Categories page*/
 .categories {
     display: grid;
@@ -58,7 +104,7 @@ body {
 
 }
 
-.categories__category {
+.category {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -70,68 +116,36 @@ body {
 
 }
 
-.categories__category-name {
+.category__name {
     text-transform: uppercase;
 }
 
-@media (max-width: 500px) {
-    body {
-        /* leave room for the fixed header and bottom navbar */
-        padding-top: calc(32px + 2 * var(--section-padding));
-        padding-bottom: calc(19px + 2 * var(--section-padding));
-    }
 
-    .navbar {
-        /* mobile nav is fixed, so the wrapper needs no space */
+@media (min-width: 768px) {
+    body {
         padding: 0;
     }
 
-    .navbar__desktop {
+    .categories {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar__mobile {
         display: none;
     }
 
     .navbar__mobile-header {
+        display: none;
+    }
+
+    .navbar__desktop {
         width: 100%;
         display: flex;
-        background-color: #FFFFFF;
-        align-items: center;
-        gap: 10px;
-        padding: var(--section-padding);
-        position: fixed;
-        top: 0;
-        left: 0;
+        justify-content: space-between;
     }
 
-
-    .navbar__mobile {
-        width: 100%;
-        background-color: #FFFFFF;
+    .navbar__links {
         display: flex;
-        justify-content: space-around;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-    }
-
-    .navbar__mobile-link {
-        padding: 10px;
-        flex: 1;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar__mobile-link-image {
-        width: 24px;
-    }
-
-    .navbar__mobile-link-image img {
-        width: 100%;
-    }
-
-    .navbar__mobile-link a {
-        text-decoration: none;
-        color: black;
     }
 }
