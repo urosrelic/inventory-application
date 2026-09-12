@@ -10,14 +10,14 @@
 <main class="categories">
     <%- include('partials/nav') %>
     <% {categories.map((category) => { %>
-        <div class="categories__category">
-            <span class="categories__category-name">
+        <div class="category">
+            <span class="category__name">
                  <%= category.name %>
             </span>
-            <span class="categories__category-description">
+            <span class="category__description">
                 <%= category.description %>
             </span>
-            <span class="categories__category-item-count">
+            <span class="category__item-count">
                 <%= category.items_count%> products
             </span>
             <a href="#">View items</a>
