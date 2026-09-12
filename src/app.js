@@ -36,6 +36,7 @@ const PORT = process.env.PORT || 3000;
 app.use('/categories', categoriesRouter);
 app.use('/items', itemsRouter);
 
+
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
 });
