@@ -46,12 +46,16 @@ body {
     width: 100%;
     display: flex;
     background-color: #FFFFFF;
-    align-items: center;
-    gap: 10px;
     padding: var(--section-padding);
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .navbar__mobile {
@@ -143,9 +147,12 @@ body {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        background-color: #FFFFFF;
+        padding: var(--section-padding);
     }
 
     .navbar__links {
         display: flex;
     }
+
 }
