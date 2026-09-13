@@ -38,11 +38,18 @@ const GET_ITEMS = sql`
     SELECT * FROM items
 `
 
+const CREATE_ITEM = sql`
+  INSERT INTO items (name, description, price, category_id)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *
+`;
+
 export default {
   GET_CATEGORIES,
   SEARCH_CATEGORIES,
   GET_CATEGORY_BY_ID,
   CREATE_CATEGORY,
   GET_ITEMS,
+  CREATE_ITEM,
 };
 
