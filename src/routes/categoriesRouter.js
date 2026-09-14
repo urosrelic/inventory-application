@@ -4,6 +4,7 @@ const router = Router();
 
 router.get('/', categoriesController.getAllCategories);
 router.get('/:id', categoriesController.getCategoryById);
+router.get('/:id/items', categoriesController.getCategoryItems)
 
 router.post('/', categoriesController.createCategory);
 

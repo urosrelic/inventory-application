@@ -54,8 +54,34 @@ async function createCategory(req, res, next) {
   }
 }
 
+async function getCategoryItems(req, res, next) {
+  const categoryId = req.params.id;
+
+  if (!categoryId) {
+    res.status(422).json({ error: 'Missing fields' });
+  }
+
+  try {
+    const { rows } = await pool.query(queries.GET_ITEMS_BY_CATEGORY, [
+      categoryId,
+    ]);
+
+    const categoryResult = await pool.query(queries.GET_CATEGORY_BY_ID, [
+      categoryId,
+    ]);
+
+    res.render('items-by-category', {
+      items: rows,
+      category: categoryResult.rows[0],
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 export default {
   getAllCategories,
   getCategoryById,
   createCategory,
+  getCategoryItems,
 };

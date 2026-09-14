@@ -1,4 +1,3 @@
-
 import { sql } from './sql.js';
 
 // CATEGORIES
@@ -25,7 +24,7 @@ const SEARCH_CATEGORIES = sql`
 
 const GET_CATEGORY_BY_ID = sql`
   SELECT * FROM categories WHERE id = $1
-`
+`;
 
 const CREATE_CATEGORY = sql`
   INSERT INTO categories (name, description)
@@ -36,7 +35,12 @@ const CREATE_CATEGORY = sql`
 // ITEMS
 const GET_ITEMS = sql`
     SELECT * FROM items
-`
+`;
+
+const GET_ITEMS_BY_CATEGORY = sql`
+    select * from items
+    where category_id = $1
+`;
 
 const CREATE_ITEM = sql`
   INSERT INTO items (name, description, price, category_id)
@@ -45,11 +49,13 @@ const CREATE_ITEM = sql`
 `;
 
 export default {
+  // Categories
   GET_CATEGORIES,
   SEARCH_CATEGORIES,
   GET_CATEGORY_BY_ID,
   CREATE_CATEGORY,
+  // Items
   GET_ITEMS,
   CREATE_ITEM,
+  GET_ITEMS_BY_CATEGORY,
 };
-
