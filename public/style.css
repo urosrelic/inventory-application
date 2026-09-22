@@ -37,7 +37,6 @@ body {
     display: none;
 }
 
-
 .navbar__mobile-header {
     width: 100%;
     display: flex;
@@ -80,6 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 .navbar__link-image {
@@ -90,17 +90,11 @@ body {
     width: 100%;
 }
 
-.navbar__link a {
-    text-decoration: none;
-    color: black;
-}
-
 .categories, .items {
     max-width: 900px;
     margin: 25px auto;
     padding: 0 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
     gap: 16px;
 }
 
