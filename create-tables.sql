@@ -1,4 +1,4 @@
-create schema inventory_app;
+CREATE DATABASE inventory_app;
 
 create table categories
 (
