@@ -9,6 +9,9 @@
 <body>
 <%- include('partials/nav') %>
 <main class="items">
+    <div class="items__go-back">
+        <a href="/categories">&larr; Back</a>
+    </div>
     <h1 class="items__category"><%= category.name %></h1>
     <% {items.map((item) => { %>
         <div class="item">
